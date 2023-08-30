@@ -8,8 +8,12 @@ app.listen(port, function () {
 
 require("./src/db/database");
 app.set("view engine", "ejs");
+app.use(express.static("public"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
+
+
 const productrouter = require("./src/routes/product.routes");
-app.use("/", productrouter);
+app.use("/product", productrouter);
+
